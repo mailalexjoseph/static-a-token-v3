@@ -51,12 +51,8 @@ jobs:
 
       - name: Verify rule ${{ matrix.rule }}
         run: |
-          cd certora
-          touch applyHarness.patch
-          make munged
-          cd ..
           git apply --allow-empty ${{ matrix.patch }}
-          certoraRun certora/confs/${{ matrix.rule }}
+          certoraRun ${{ matrix.rule }}
           
         env:
           CERTORAKEY: ${{ secrets.CERTORAKEY }}
