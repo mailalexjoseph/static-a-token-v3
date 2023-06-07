@@ -5,18 +5,18 @@ import "../methods/methods_base.spec"
 ////////////////// FUNCTIONS //////////////////////
 
 ///////////////// Properties ///////////////////////
-rule 1SATverified(){
+rule SAT1verified(){
     assert true;
 }
-rule 2SATverified(){
+rule SAT2verified(){
     assert true;
 }
-rule 3SATverified(){
+rule SAT3verified(){
     assert true;
 }
-rule 4SATverified(){
+rule SAT4verified(){
     assert true;
 }
-rule 5SATverified(){
+rule SAT5verified(){
     assert true;
 }
