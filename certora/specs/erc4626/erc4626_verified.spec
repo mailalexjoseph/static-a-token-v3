@@ -14,6 +14,4 @@ rule erc4626_2verified(){
 rule erc4626_3verified(){
     assert true;
 }
-rule erc4626_4verified(){
-    assert true;
-}
+
