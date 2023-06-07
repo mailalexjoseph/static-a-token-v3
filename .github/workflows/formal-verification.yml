@@ -63,8 +63,8 @@ jobs:
       matrix:
         patch: ${{ fromJson(needs.list-patches.outputs.matrix) }} 
         rule: 
-            - verify_erc4626_verified.conf --rules erc4626_1verified
-            - verify_erc4626_verified.conf --rules erc4626_2verified erc4626_3verified
-            - verify_staticatokenlm_verified.conf --rules 1SATverified 2SATverified
-            - verify_staticatokenlm_verified.conf --rules 3SATverified
+            - certora/conf/verify_erc4626_verified.conf --rules erc4626_1verified
+            - certora/conf/verify_erc4626_verified.conf --rules erc4626_2verified erc4626_3verified
+            - certora/conf/verify_staticatokenlm_verified.conf --rules 1SATverified 2SATverified
+            - certora/conf/verify_staticatokenlm_verified.conf --rules 3SATverified
             
