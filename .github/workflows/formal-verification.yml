@@ -41,7 +41,7 @@ jobs:
         with: { java-version: "11", java-package: jre }
 
       - name: Install certora cli
-        run: pip install certora-cli
+        run: pip3 install certora-cli==3.6.8.post3
       
       - name: Install solc
         run: |
@@ -65,6 +65,6 @@ jobs:
         rule: 
             - certora/conf/verify_erc4626_verified.conf --rules erc4626_1verified
             - certora/conf/verify_erc4626_verified.conf --rules erc4626_2verified erc4626_3verified
-            - certora/conf/verify_staticatokenlm_verified.conf --rules SAT1verified SAT2verified
+            - certora/conf/verify_staticatokenlm_verified.conf --rules SAT1verified SAT2verifiedfr
             - certora/conf/verify_staticatokenlm_verified.conf --rules SAT3verified
             
