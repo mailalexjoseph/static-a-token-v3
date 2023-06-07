@@ -65,6 +65,6 @@ jobs:
         rule: 
             - certora/conf/verify_erc4626_verified.conf --rules erc4626_1verified
             - certora/conf/verify_erc4626_verified.conf --rules erc4626_2verified erc4626_3verified
-            - certora/conf/verify_staticatokenlm_verified.conf --rules 1SATverified 2SATverified
-            - certora/conf/verify_staticatokenlm_verified.conf --rules 3SATverified
+            - certora/conf/verify_staticatokenlm_verified.conf --rules SAT1verified SAT2verified
+            - certora/conf/verify_staticatokenlm_verified.conf --rules SAT3verified
             
