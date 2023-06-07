@@ -14,3 +14,6 @@ rule 2SATverified(){
 rule 3SATverified(){
     assert true;
 }
+rule 4SATverified(){
+    assert true;
+}
