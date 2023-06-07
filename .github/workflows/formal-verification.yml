@@ -8,14 +8,6 @@ on:
   workflow_dispatch:
 
 jobs:
-  list-confs:
-    runs-on: ubuntu-latest
-    outputs:
-      matrix: ${{ steps.set-matrix.outputs.matrix }}
-    steps:
-      - uses: actions/checkout@v2
-      - id: set-matrix
-        run: echo ::set-output name=matrix::$(ls certora/conf/*_verified.conf | jq -Rsc 'split("\n")[:-1]')
 
   list-patches:
     runs-on: ubuntu-latest
@@ -59,9 +51,13 @@ jobs:
           sudo mv solc-static-linux /usr/local/bin/solc8.10
 
       - name: Verify rule ${{ matrix.rule }}
-        run: |	          
+        run: |
+          cd certora
+          touch applyHarness.patch
+          make munged
+          cd ..
           git apply --allow-empty ${{ matrix.patch }}
-          certoraRun ${{ matrix.rule }}
+          certoraRun certora/confs/${{ matrix.rule }}
           
         env:
           CERTORAKEY: ${{ secrets.CERTORAKEY }}
@@ -71,4 +67,9 @@ jobs:
       max-parallel: 16
       matrix:
         patch: ${{ fromJson(needs.list-patches.outputs.matrix) }} 
-        rule: ${{ fromJson(needs.list-confs.outputs.matrix) }} 
+        rule: 
+            - verify_erc4626_verified.conf --rules erc4626_1verified
+            - verify_erc4626_verified.conf --rules erc4626_2verified erc4626_3verified
+            - verify_staticatokenlm_verified.conf --rules 1SATverified 2SATverified
+            - verify_staticatokenlm_verified.conf --rules 3SATverified
+            
