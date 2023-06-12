@@ -8,10 +8,9 @@ import "erc4626_base.spec"
 rule erc4626_1verified(){
     assert true;
 }
-rule erc4626_2verified(){
-    assert true;
-}
-rule erc4626_3verified(){
-    assert true;
-}
-
+// rule erc4626_2verified(){
+//     assert true;
+// }
+// rule erc4626_3verified(){
+//     assert true;
+// }
